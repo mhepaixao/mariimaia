@@ -1,0 +1,16 @@
+#foto{
+   color: red;
+
+   position: fixed;
+   top: 35%;
+   left: 35%;
+
+    border: 2px solid black;
+
+    height: 30%;
+    width: 30%;
+
+    font-size: 100px;
+
+    text-align: center;
+}
