@@ -14,3 +14,13 @@
 
     text-align: center;
 }
+
+#afirmacao{
+   position: fixed;
+   top: 65%;
+   left: 35%;
+
+    font-size: 50px;
+
+    display: none;
+}
