@@ -1,26 +1,31 @@
-#foto{
+.photo{
+    height: 100%;
+    width: 100%;
+}
+
+#photo_container{
    color: red;
 
    position: fixed;
-   top: 35%;
-   left: 35%;
+   top: 25%;
+   left: 40%;
 
-    border: 2px solid black;
+   border: 2px solid black;
 
-    height: 30%;
-    width: 30%;
+   height: 50%;
+   width: 20%;
 
-    font-size: 100px;
+   font-size: 70px;
 
-    text-align: center;
+   text-align: center;
 }
 
-#afirmacao{
+#statement{
    position: fixed;
-   top: 65%;
-   left: 35%;
+   top: 75%;
+   left: 40%;
 
-    font-size: 50px;
+   font-size: 35px;
 
-    display: none;
+   visibility: hidden;
 }
