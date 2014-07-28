@@ -1,8 +1,13 @@
-.photo{
+.photo_fade{
     height: 100%;
     width: 100%;
 
     display: none;
+}
+
+.photo{
+    height: 100%;
+    width: 100%;
 }
 
 #photo_container{

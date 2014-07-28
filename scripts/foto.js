@@ -6,12 +6,13 @@ $(function() {
 
    $("#photo_container").mouseenter(function() {
       if(isMessageInPhoto() == true){
-         $("#photo_container").html("<img class=\"photo\" src=\"photos/frente.jpg\"></img>");
+         $("#photo_container").html("<img class=\"photo_fade\" src=\"photos/center.jpg\"></img>");
 
-         $(".photo").fadeIn(1000);
-         $("#statement").fadeIn(4000);
+         $(".photo_fade").fadeIn(2000);
+         $("#statement").fadeIn(4000, function(){
+            firstPhotoFlag = true;
+         });
 
-         firstPhotoFlag = true;
       }
    });
 
@@ -29,24 +30,24 @@ $(function() {
             var angle = getAngleBetweenTwoPoints(photoCenterPoint.x, photoCenterPoint.y, mouse.pageX, mouse.pageY)
 
             if(isAngleRight(angle) == true){
-               //$("#photo_container").html("<img class=\"photo\" src=\"photos/frente_1.jpg\"></img>");
-               $("#photo_container").html("right");
+               $("#photo_container").html("<img class=\"photo\" src=\"photos/right.jpg\"></img>");
+               //$("#photo_container").html("right");
             }
             else if(isAngleUp(angle) == true){
-               //$("#photo_container").html("<img class=\"photo\" src=\"photos/frente_1.jpg\"></img>");
-               $("#photo_container").html("up");
+               $("#photo_container").html("<img class=\"photo\" src=\"photos/up.jpg\"></img>");
+               //$("#photo_container").html("up");
             }
             else if(isAngleLeft(angle) == true){
-               //$("#photo_container").html("<img class=\"photo\" src=\"photos/frente_1.jpg\"></img>");
-               $("#photo_container").html("left");
+               $("#photo_container").html("<img class=\"photo\" src=\"photos/left.jpg\"></img>");
+               //$("#photo_container").html("left");
             }
             else if(isAngleDown(angle) == true){
-               //$("#photo_container").html("<img class=\"photo\" src=\"photos/frente_1.jpg\"></img>");
-               $("#photo_container").html("down");
+               $("#photo_container").html("<img class=\"photo\" src=\"photos/down.jpg\"></img>");
+               //$("#photo_container").html("down");
             }
          }
          else{
-            $("#photo_container").html("center");
+            $("#photo_container").html("<img class=\"photo\" src=\"photos/center.jpg\"></img>");
          }
       }
    });
