@@ -5,49 +5,35 @@ $(function() {
    photoCenterPoint = getPhotoCenterPoint();
 
    $("#photo_container").mouseenter(function() {
-      if(isMessageInPhoto() == true){
-         $("#photo_container").html("<img class=\"photo_fade\" src=\"photos/center.jpg\"></img>");
-
-         $(".photo_fade").fadeIn(2000);
-         $("#statement").fadeIn(4000, function(){
-            firstPhotoFlag = true;
-         });
-
-      }
+      $("#statement").fadeIn(4000, function(){
+         firstPhotoFlag = true;
+      });
    });
-
-   function isMessageInPhoto(){
-      if($("#photo_container").html().indexOf("Can") > - 1){
-         return true;
-      }
-   }
 
    $(document).mousemove(function(mouse){
       if(firstPhotoFlag == true){
+
+         reloadZIndexes();
 
          if(isMouseOffCenter(mouse) == true){
 
             var angle = getAngleBetweenTwoPoints(photoCenterPoint.x, photoCenterPoint.y, mouse.pageX, mouse.pageY)
 
             if(isAngleRight(angle) == true){
-               $("#photo_container").html("<img class=\"photo\" src=\"photos/right.jpg\"></img>");
-               //$("#photo_container").html("right");
+               $("#right").css("z-index", "1");
             }
             else if(isAngleUp(angle) == true){
-               $("#photo_container").html("<img class=\"photo\" src=\"photos/up.jpg\"></img>");
-               //$("#photo_container").html("up");
+               $("#up").css("z-index", "1");
             }
             else if(isAngleLeft(angle) == true){
-               $("#photo_container").html("<img class=\"photo\" src=\"photos/left.jpg\"></img>");
-               //$("#photo_container").html("left");
+               $("#left").css("z-index", "1");
             }
             else if(isAngleDown(angle) == true){
-               $("#photo_container").html("<img class=\"photo\" src=\"photos/down.jpg\"></img>");
-               //$("#photo_container").html("down");
+               $("#down").css("z-index", "1");
             }
          }
          else{
-            $("#photo_container").html("<img class=\"photo\" src=\"photos/center.jpg\"></img>");
+            $("#center").css("z-index", "1");
          }
       }
    });
@@ -60,6 +46,10 @@ $(function() {
       photoCenterPoint.y = photoContainerOffset.top + ($("#photo_container").height() / 2);
 
       return photoCenterPoint;
+   }
+
+   function reloadZIndexes(){
+      $("#photo_container").find("img").css("z-index", "0");
    }
 
    function isMouseOffCenter(mouse){
@@ -84,10 +74,6 @@ $(function() {
       }
 
       return angle;
-   }
-
-   function getAngleBetweenTwoPointsInRadians(x1, y1, x2, y2){
-      return Math.atan2(y2 - y1, x2 - x1);
    }
 
    function isAngleRight(angle){
